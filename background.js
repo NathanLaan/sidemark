@@ -18,7 +18,7 @@ chrome.bookmarks.onCreated.addListener((id, bookmark) => {
 });
 
 chrome.bookmarks.onRemoved.addListener((id, info) => {
-  console.log('bookmarks.onCreated: ' + JSON.stringify(info));
+  console.log('bookmarks.onRemoved: ' + JSON.stringify(info));
 });
 
 chrome.commands.onCommand.addListener((command) => {
