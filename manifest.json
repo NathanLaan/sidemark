@@ -1,0 +1,26 @@
+{
+  "name": "SideMark",
+  "description": "Sidebar Bookmark Viewer",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "bookmarks"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/sidemark-blue-16.png",
+      "32": "/images/sidemark-blue-32.png",
+      "48": "/images/sidemark-blue-48.png",
+      "128": "/images/sidemark-blue-128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/sidemark-blue-16.png",
+    "32": "/images/sidemark-blue-32.png",
+    "48": "/images/sidemark-blue-48.png",
+    "128": "/images/sidemark-blue-128.png"
+  },
+  "options_page": "options.html"
+}
