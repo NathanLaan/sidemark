@@ -9,6 +9,7 @@ A Google Chrome extension for viewing bookmarks.
 - Keyboard shortcut.
 - Update bookmarks on events.
 - Disable text wrapping on bookmarks and folders.
+- Search feature!
 
 ## References
 
