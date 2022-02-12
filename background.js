@@ -1,8 +1,18 @@
 console.log('background');
 // let setting = '';
 
+function clog(message) {
+  const d = new Date();
+  console.log(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+' LOG: '+message);
+}
+
+// https://stackoverflow.com/questions/18694538/sending-message-from-popup-js-in-chrome-extension-to-background-js
+chrome.runtime.onMessage.addListener(function (request) {
+  clog(request.message);
+});
+
 chrome.runtime.onInstalled.addListener(() => {
-  console.log('onInstalled');
+  clog('onInstalled');
 
   //
   // TODO: Save default settings.
