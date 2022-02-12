@@ -8,6 +8,7 @@ A Google Chrome extension for viewing bookmarks.
 - Display bookmarks in "sidebar".
 - Keyboard shortcut.
 - Update bookmarks on events.
+- Disable text wrapping on bookmarks and folders.
 
 ## References
 
