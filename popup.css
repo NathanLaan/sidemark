@@ -37,6 +37,10 @@ body {
   white-space: nowrap;
 }
 
+.sidebar ul li .search {
+  background: #777777;
+}
+
 .sidebar ul li a {
   display: block;
   padding: 5px 40px;
@@ -50,4 +54,12 @@ body {
 .sidebar ul li a:hover {
   background: #585858;
   transition: background-color 0.5s ease;
+}
+
+div input {
+  width: 75%;
+  padding: 0px;
+  margin: 0px 0px 0px 15px;
+  box-sizing: border-box;
+  font-size: 1em;
 }
