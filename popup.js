@@ -69,7 +69,10 @@ function createLink(url, txt) {
 function createFolder(txt) {
   const listElement = document.createElement('li');
   const divElement = document.createElement('div');
-  divElement.appendChild(document.createTextNode(txt));
+  const iElement = document.createElement('i');
+  iElement.className = 'fa fa-folder';
+  divElement.appendChild(iElement);
+  divElement.appendChild(document.createTextNode(' ' + txt));
   listElement.appendChild(divElement);
   return listElement;
 }

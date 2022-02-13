@@ -17,7 +17,7 @@ body {
 }
 
 .sidebar {
-  background: rgb(66, 66, 66);
+  background: #424242;
   top: 0;
   left: 0;
   width: 100%;
@@ -29,6 +29,8 @@ body {
 .sidebar ul li div {
   background: #4d4d4d;
   color: #fff;
+  background: #F0F0C9;
+  color: #000;
   display: block;
   padding: 5px 20px;
   border-bottom: 1px solid #fff;
@@ -39,6 +41,9 @@ body {
 
 .sidebar ul li .search {
   background: #777777;
+  background: #124E78 !important;
+  color: #fff;
+  font-weight: bold;
 }
 
 .sidebar ul li a {
@@ -53,7 +58,7 @@ body {
 
 .sidebar ul li a:hover {
   background: #585858;
-  transition: background-color 0.5s ease;
+  /*transition: background-color 0.5s ease;*/
 }
 
 div input {

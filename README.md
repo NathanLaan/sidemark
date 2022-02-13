@@ -25,3 +25,4 @@ A Google Chrome extension for viewing bookmarks.
 - [Google Chrome Extension Runtime API](https://developer.chrome.com/docs/extensions/reference/runtime/)
 - [Google Chrome Extension Commands API](https://developer.chrome.com/docs/extensions/reference/commands/)
 - [Google Chrome Extension Message-Passing API](https://developer.chrome.com/docs/extensions/reference/runtime/#method-sendMessage)
+- [Color Palette](https://coolors.co/124e78-f0f0c9-f2bb05-d74e09-6e0e0a)
