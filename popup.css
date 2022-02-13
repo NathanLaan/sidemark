@@ -10,9 +10,10 @@
 
 body {
   min-width:300px;
+  width: 400px;
   height: 300px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .sidebar {
@@ -33,6 +34,7 @@ body {
   border-bottom: 1px solid #fff;
   position: relative;
   width: 100%;
+  white-space: nowrap;
 }
 
 .sidebar ul li a {
@@ -42,6 +44,7 @@ body {
   position: relative;
   width: 100%;
   color: #fff;
+  white-space: nowrap;
 }
 
 .sidebar ul li a:hover {

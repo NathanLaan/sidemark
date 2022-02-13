@@ -18,7 +18,7 @@ window.onload = function () {
   elem.addEventListener('input', function(e) {
     chrome.bookmarks.getTree().then(function (bookmarkList) {
       msg("SEARCH: " + e.target.value);
-      loadTree(bookmarkList, e.target.value);
+      loadTree(bookmarkList, e.target.value.toLowerCase());
     }, onFailedGetTree);
   });
 };
@@ -28,14 +28,13 @@ function onFailedGetTree(error) {
 }
 
 function loadTree(bookmarkList, searchQuery) {
-  // TODO: clear!
+  bookmarkListElement.innerHTML = '';
   loadNode(bookmarkList[0], searchQuery);
 }
 
 function loadNode(bookmarkNode, searchQuery) {
   if(searchQuery && !bookmarkNode.children) {
-    if( bookmarkNode.title && bookmarkNode.title.toLowerCase().includes(queryString.toLowerCase())) {
-      msg('FOUND: ' + bookmarkNode.title);
+    if( bookmarkNode.title && bookmarkNode.title.toLowerCase().includes(searchQuery)) {
       bookmarkListElement.appendChild(createBookmark(bookmarkNode));
     }
   } else {
