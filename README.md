@@ -15,6 +15,7 @@ A Google Chrome extension for viewing bookmarks.
 - [ ] Better icon.
 - [ ] Screenshots.
 - [ ] Website.
+- [ ] Give focus to search box on popup load.
 - [x] Disable text wrapping on bookmarks and folders.
 - [x] Search feature!
 
