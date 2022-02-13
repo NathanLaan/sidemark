@@ -10,26 +10,44 @@ function msg(m) {
 window.onload = function () {
   msg("popup.onload");
   bookmarkListElement = document.getElementById('bookmarkList');
-  chrome.bookmarks.getTree().then(loadTree, onFailedGetTree);
+  chrome.bookmarks.getTree().then(function (bookmarkList) {
+    loadTree(bookmarkList);
+  }, onFailedGetTree);
+
+  const elem = document.getElementById('bookmarkSearch');
+  elem.addEventListener('input', function(e) {
+    chrome.bookmarks.getTree().then(function (bookmarkList) {
+      msg("SEARCH: " + e.target.value);
+      loadTree(bookmarkList, e.target.value);
+    }, onFailedGetTree);
+  });
 };
 
 function onFailedGetTree(error) {
-  chrome.runtime.sendMessage({message: error});
+  msg(error);
 }
 
-function loadTree(bookmarkList) {
-  loadNode(bookmarkList[0]);
+function loadTree(bookmarkList, searchQuery) {
+  // TODO: clear!
+  loadNode(bookmarkList[0], searchQuery);
 }
 
-function loadNode(bookmarkNode) {
-  if (bookmarkNode.url) {
-    bookmarkListElement.appendChild(createBookmark(bookmarkNode));
-  } else if(bookmarkNode.title) {
-    bookmarkListElement.appendChild(createFolder(bookmarkNode.title));
-  }
-  if (bookmarkNode.children) {
-    for (child of bookmarkNode.children) {
-      loadNode(child);
+function loadNode(bookmarkNode, searchQuery) {
+  if(searchQuery && !bookmarkNode.children) {
+    if( bookmarkNode.title && bookmarkNode.title.toLowerCase().includes(queryString.toLowerCase())) {
+      msg('FOUND: ' + bookmarkNode.title);
+      bookmarkListElement.appendChild(createBookmark(bookmarkNode));
+    }
+  } else {
+    if (bookmarkNode.url) {
+      bookmarkListElement.appendChild(createBookmark(bookmarkNode));
+    } else if(bookmarkNode.title) {
+      bookmarkListElement.appendChild(createFolder(bookmarkNode.title));
+    }
+    if (bookmarkNode.children) {
+      for (child of bookmarkNode.children) {
+        loadNode(child, searchQuery);
+      }
     }
   }
 }

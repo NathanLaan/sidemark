@@ -10,8 +10,8 @@
   "commands": {
     "open-sidemark": {
       "suggested_key": {
-        "default": "Ctrl+Shift+S",
-        "mac": "Command+Shift+S"
+        "default": "Ctrl+Shift+D",
+        "mac": "Command+Shift+D"
       },
       "description": "Open SideMark."
     },
