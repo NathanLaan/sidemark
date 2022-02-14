@@ -21,6 +21,7 @@ A Google Chrome extension for viewing bookmarks.
 
 ## References
 
+- [Google Chrome extensions page for SideMark](https://chrome.google.com/webstore/detail/sidemark/mpmmbieakmohbhjidajegiehcbeagdcg)
 - [Google Chrome Extension Bookmarks API](https://developer.chrome.com/docs/extensions/reference/bookmarks/)
 - [Google Chrome Extension Runtime API](https://developer.chrome.com/docs/extensions/reference/runtime/)
 - [Google Chrome Extension Commands API](https://developer.chrome.com/docs/extensions/reference/commands/)
