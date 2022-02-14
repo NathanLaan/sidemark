@@ -21,7 +21,7 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "/images/sidemark-outline-black-128.png"
+    "default_icon": "/images/sidemark-black-32.png"
   },
   "icons": {
     "16": "/images/sidemark-outline-black-128.png",
