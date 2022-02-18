@@ -58,7 +58,7 @@ function loadNode(bookmarkTreeNode, filterText) {
   }
 }
 
-/**
+/*
  * 
  * HTML element functions
  * 
