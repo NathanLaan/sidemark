@@ -10,7 +10,6 @@ function msg(m) {
 }
 
 window.onload = function () {
-  msg('popup.onload');
   bookmarkListElement = document.getElementById('bookmarkList');
   chrome.bookmarks.getTree().then(function (bookmarkList) {
     loadTree(bookmarkList);
@@ -35,20 +34,25 @@ function loadTree(bookmarkList, searchQuery) {
   loadNode(bookmarkList[0], searchQuery);
 }
 
-function loadNode(bookmarkNode, searchQuery) {
-  if(searchQuery && !bookmarkNode.children) {
-    if( bookmarkNode.title && bookmarkNode.title.toLowerCase().includes(searchQuery)) {
-      bookmarkListElement.appendChild(createBookmark(bookmarkNode));
+/**
+ * 
+ * @param {chrome.bookmarks.BookmarkTreeNode} bookmarkTreeNode  The node to load and/or filter with filterText.
+ * @param {string} filterText  The string to filter nodes or null if no filter.
+ */
+function loadNode(bookmarkTreeNode, filterText) {
+  if(filterText && !bookmarkTreeNode.children) {
+    if( bookmarkTreeNode.title && bookmarkTreeNode.title.toLowerCase().includes(filterText)) {
+      bookmarkListElement.appendChild(createBookmark(bookmarkTreeNode));
     }
   } else {
-    if (bookmarkNode.url) {
-      bookmarkListElement.appendChild(createBookmark(bookmarkNode));
-    } else if(bookmarkNode.title) {
-      bookmarkListElement.appendChild(createFolder(bookmarkNode.title));
+    if (bookmarkTreeNode.url) {
+      bookmarkListElement.appendChild(createBookmark(bookmarkTreeNode));
+    } else if(bookmarkTreeNode.title) {
+      bookmarkListElement.appendChild(createFolder(bookmarkTreeNode.title));
     }
-    if (bookmarkNode.children) {
-      for (child of bookmarkNode.children) {
-        loadNode(child, searchQuery);
+    if (bookmarkTreeNode.children) {
+      for (child of bookmarkTreeNode.children) {
+        loadNode(child, filterText);
       }
     }
   }
