@@ -48,7 +48,7 @@ function loadNode(bookmarkTreeNode, filterText) {
     if (bookmarkTreeNode.url) {
       bookmarkListElement.appendChild(createBookmarkElement(bookmarkTreeNode));
     } else if(bookmarkTreeNode.title) {
-      bookmarkListElement.appendChild(createFolder(bookmarkTreeNode.title));
+      bookmarkListElement.appendChild(createFolderElement(bookmarkTreeNode.title));
     }
     if (bookmarkTreeNode.children) {
       for (child of bookmarkTreeNode.children) {
@@ -73,7 +73,7 @@ function createLinkElement(url, txt) {
   return link;
 }
 
-function createFolder(txt) {
+function createFolderElement(txt) {
   const listElement = document.createElement('li');
   const divElement = document.createElement('div');
   const iElement = document.createElement('i');
