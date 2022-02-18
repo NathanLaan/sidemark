@@ -64,7 +64,7 @@ function loadNode(bookmarkTreeNode, filterText) {
  * 
  */
 
-function createLink(url, txt) {
+function createLinkElement(url, txt) {
   const link = document.createElement('a');
   link.href = url;
   link.title = txt;
@@ -86,6 +86,6 @@ function createFolder(txt) {
 
 function createBookmark(bookmark) {
   const listElement = document.createElement('li');
-  listElement.appendChild(createLink(bookmark.url, bookmark.title));
+  listElement.appendChild(createLinkElement(bookmark.url, bookmark.title));
   return listElement;
 }
