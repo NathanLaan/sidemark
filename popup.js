@@ -17,7 +17,6 @@ window.onload = function () {
   const elem = document.getElementById('bookmarkSearch');
   elem.addEventListener('input', function(e) {
     chrome.bookmarks.getTree().then(function (bookmarkList) {
-      msg("SEARCH: " + e.target.value);
       loadTree(bookmarkList, e.target.value.toLowerCase());
     }, onFailedGetTree);
   });
