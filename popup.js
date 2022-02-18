@@ -21,6 +21,8 @@ window.onload = function () {
       loadTree(bookmarkList, e.target.value.toLowerCase());
     }, onFailedGetTree);
   });
+
+  elem.focus();
 };
 
 function onFailedGetTree(error) {
