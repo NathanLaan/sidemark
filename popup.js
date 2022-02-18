@@ -31,15 +31,15 @@ function onFailedGetTree(error) {
 
 function loadTree(bookmarkList, searchQuery) {
   bookmarkListElement.innerHTML = '';
-  loadNode(bookmarkList[0], searchQuery);
+  addNodeRecursive(bookmarkList[0], searchQuery);
 }
 
 /**
- * 
+ * Add the specified bookmarkTreeNode and all child nodes. Filter if filterText is specified.
  * @param {chrome.bookmarks.BookmarkTreeNode} bookmarkTreeNode  The node to load and/or filter with filterText.
  * @param {string} filterText  The string to filter nodes or null if no filter.
  */
-function loadNode(bookmarkTreeNode, filterText) {
+function addNodeRecursive(bookmarkTreeNode, filterText) {
   if(filterText && !bookmarkTreeNode.children) {
     if( bookmarkTreeNode.title && bookmarkTreeNode.title.toLowerCase().includes(filterText)) {
       bookmarkListElement.appendChild(createBookmarkElement(bookmarkTreeNode));
@@ -50,6 +50,7 @@ function loadNode(bookmarkTreeNode, filterText) {
     } else if(bookmarkTreeNode.title) {
       bookmarkListElement.appendChild(createFolderElement(bookmarkTreeNode.title));
     }
+    // TODO: Do not show node if no filtered children
     if (bookmarkTreeNode.children) {
       for (child of bookmarkTreeNode.children) {
         loadNode(child, filterText);
