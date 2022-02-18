@@ -2,13 +2,15 @@
 msg('popup');
 var bookmarkListElement;
 
-
+/**
+ * @param {string} m  Message to log in the background.js console.
+ */
 function msg(m) {
   chrome.runtime.sendMessage({message: m});
 }
 
 window.onload = function () {
-  msg("popup.onload");
+  msg('popup.onload');
   bookmarkListElement = document.getElementById('bookmarkList');
   chrome.bookmarks.getTree().then(function (bookmarkList) {
     loadTree(bookmarkList);
