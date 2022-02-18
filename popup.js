@@ -54,7 +54,7 @@ function addNodeRecursive(bookmarkTreeNode, filterText) {
     // TODO: Do not show node if no filtered children
     if (bookmarkTreeNode.children) {
       for (child of bookmarkTreeNode.children) {
-        loadNode(child, filterText);
+        addNodeRecursive(child, filterText);
       }
     }
   }
