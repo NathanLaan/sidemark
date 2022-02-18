@@ -42,11 +42,11 @@ function loadTree(bookmarkList, searchQuery) {
 function loadNode(bookmarkTreeNode, filterText) {
   if(filterText && !bookmarkTreeNode.children) {
     if( bookmarkTreeNode.title && bookmarkTreeNode.title.toLowerCase().includes(filterText)) {
-      bookmarkListElement.appendChild(createBookmark(bookmarkTreeNode));
+      bookmarkListElement.appendChild(createBookmarkElement(bookmarkTreeNode));
     }
   } else {
     if (bookmarkTreeNode.url) {
-      bookmarkListElement.appendChild(createBookmark(bookmarkTreeNode));
+      bookmarkListElement.appendChild(createBookmarkElement(bookmarkTreeNode));
     } else if(bookmarkTreeNode.title) {
       bookmarkListElement.appendChild(createFolder(bookmarkTreeNode.title));
     }
@@ -84,7 +84,7 @@ function createFolder(txt) {
   return listElement;
 }
 
-function createBookmark(bookmark) {
+function createBookmarkElement(bookmark) {
   const listElement = document.createElement('li');
   listElement.appendChild(createLinkElement(bookmark.url, bookmark.title));
   return listElement;
