@@ -15,10 +15,9 @@ chrome.runtime.onMessage.addListener(function (request) {
 chrome.runtime.onInstalled.addListener(() => {
   clog('onInstalled');
 
-  clog(JSON.stringify(chrome.browserAction));
-
   chrome.action.onClicked.addListener(function(tab) {
-    clog('chrome.action.onClicked');
+    clog('chrome.action.onClicked: ' + tab.id);
+    chrome.tabs.sendMessage(tab.id, 'chrome.action.onClicked');
   });
 
   //
