@@ -11,7 +11,6 @@ function msg(m) {
 }
 
 chrome.runtime.onMessage.addListener(function(message, sender, callback) {
-  msg('onMessage.function(): ' + message);
   if(visible) {
     document.body.removeChild(element);
   } else{
