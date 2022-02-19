@@ -4,7 +4,6 @@ let visible = false;
 
 let element = document.createElement('div'); 
 element.className = 'sidemark-sidebar';
-element.frameBorder = "none";
 
 function msg(m) {
   chrome.runtime.sendMessage({message: m});
