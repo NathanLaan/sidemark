@@ -18,15 +18,6 @@
   top: 0px;
   right: 0px;
   z-index: 900000000000000000;
-  /*
-  element.style.clear = "both";
-  element.style.display = "float";
-  element.style.height = "100%";
-  element.style.width = "300px";
-  element.style.position = "fixed";
-  element.style.top = "0px";
-  element.style.right = "0px";
-  element.style.zIndex = "9000000000000000000";*/
 }
 
 .sidebar {
