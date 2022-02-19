@@ -9,6 +9,9 @@ function clog(message) {
 
 // https://stackoverflow.com/questions/18694538/sending-message-from-popup-js-in-chrome-extension-to-background-js
 chrome.runtime.onMessage.addListener(function (request) {
+  if(request.message == 'getBookmarks') {
+    getBookmarks();
+  }
   clog(request.message);
 });
 
@@ -24,6 +27,19 @@ chrome.runtime.onInstalled.addListener(() => {
   //
 
 });
+
+
+function getBookmarks() {
+  chrome.bookmarks.getTree().then(function (bookmarkList) {
+    //loadTree(bookmarkList);
+    //
+    // TODO: Callback the content script
+    //
+    clog('chrome.bookmarks.getTree');
+  }, function (error) {
+    clog(error);
+  });
+}
 
 chrome.runtime.onStartup.addListener(() => {
   clog('onStartup');
