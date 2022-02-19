@@ -1,12 +1,21 @@
 {
   "name": "SideMark",
   "description": "Sidebar Bookmark Viewer (Ctrl+Shift+X or Command+Shift+X)",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
   },
   "permissions": ["storage", "activeTab", "scripting", "bookmarks", "commands"],
+  "content_scripts": [{
+      "run_at": "document_end",
+      "matches": [
+          "https://*/*",
+          "http://*/*"
+      ],
+      "js": ["content.js"],
+      "css": ["popup.css"]
+  }],
   "commands": {
     "_execute_action": {
 			"suggested_key": {
@@ -15,12 +24,12 @@
         "chromeos": "Ctrl+Shift+X",
         "linux": "Ctrl+Shift+X"
 			},
-			"description": "Open Popup",
+			"description": "SideMark",
 			"global": false		
 		}
   },
   "action": {
-    "default_popup": "popup.html",
+    "default_title": "SideMark",
     "default_icon": "/images/sidemark-black-32.png"
   },
   "icons": {

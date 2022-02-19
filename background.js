@@ -1,5 +1,6 @@
-console.log('background');
+clog('background');
 // let setting = '';
+
 
 function clog(message) {
   const d = new Date();
@@ -13,6 +14,12 @@ chrome.runtime.onMessage.addListener(function (request) {
 
 chrome.runtime.onInstalled.addListener(() => {
   clog('onInstalled');
+
+  clog(JSON.stringify(chrome.browserAction));
+
+  chrome.action.onClicked.addListener(function(tab) {
+    clog('chrome.action.onClicked');
+  });
 
   //
   // TODO: Save default settings.
@@ -39,21 +46,21 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 chrome.runtime.onStartup.addListener(() => {
-  console.log('onStartup');
+  clog('onStartup');
 });
 
 chrome.bookmarks.onChanged.addListener((id, info) => {
-  console.log('bookmarks.onChanged: ' + JSON.stringify(info));
+  clog('bookmarks.onChanged: ' + JSON.stringify(info));
 });
 
 chrome.bookmarks.onCreated.addListener((id, bookmark) => {
-  console.log('bookmarks.onCreated: ' + JSON.stringify(bookmark));
+  clog('bookmarks.onCreated: ' + JSON.stringify(bookmark));
 });
 
 chrome.bookmarks.onRemoved.addListener((id, info) => {
-  console.log('bookmarks.onRemoved: ' + JSON.stringify(info));
+  clog('bookmarks.onRemoved: ' + JSON.stringify(info));
 });
 
 chrome.commands.onCommand.addListener((command) => {
-  console.log(`Command: ${command}`);
+  clog(`Command: ${command}`);
 });
