@@ -14,7 +14,7 @@
           "http://*/*"
       ],
       "js": ["content.js"],
-      "css": ["popup.css"]
+      "css": ["content.css"]
   }],
   "commands": {
     "_execute_action": {

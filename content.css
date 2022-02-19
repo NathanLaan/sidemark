@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.sidemark {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidemark-sidebar {
+  background: orange;
+  clear: both;
+  display: float;
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 900000000000000000;
+  /*
+  element.style.clear = "both";
+  element.style.display = "float";
+  element.style.height = "100%";
+  element.style.width = "300px";
+  element.style.position = "fixed";
+  element.style.top = "0px";
+  element.style.right = "0px";
+  element.style.zIndex = "9000000000000000000";*/
+}
+
+.sidebar {
+  background: #424242;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x:hidden;
+  overflow-y:scroll;
+}
+
+.sidebar ul li div {
+  background: #4d4d4d;
+  color: #fff;
+  background: #F0F0C9;
+  color: #000;
+  display: block;
+  padding: 5px 20px;
+  border-bottom: 1px solid #fff;
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.sidebar ul li .search {
+  background: #777777;
+  background: #124E78 !important;
+  color: #fff;
+  font-weight: bold;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 5px 40px;
+  border-bottom: 1px solid #fff;
+  position: relative;
+  width: 100%;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.sidebar ul li a:hover {
+  background: #585858;
+  /*transition: background-color 0.5s ease;*/
+}
+
+div input {
+  width: 75%;
+  padding: 0px;
+  margin: 0px 0px 0px 15px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
