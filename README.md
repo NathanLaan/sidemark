@@ -4,12 +4,15 @@ A Google Chrome extension for viewing bookmarks.
 
 ## Roadmap
 
-- [x] Display bookmarks in popup window.
-- [ ] Display bookmarks in "sidebar".
+- [x] Display bookmarks in "sidebar" on the page.
 - [ ] Editable bookmarks.
 - [x] Keyboard shortcut.
-- [ ] Editable keyboard shortcut?
-- [ ] Settings: Popup/sidebar size.
+- [ ] Settings:
+  - [ ] Popup/sidebar size.
+  - [ ] Open bookmark in current or new window.
+  - [ ] Editable keyboard shortcut?
+  - [ ] Toggle between sidebar and popup window.
+- [ ] Settings:
 - [ ] Language support.
 - [ ] Update bookmarks on events.
 - [ ] Better icon.
@@ -20,7 +23,7 @@ A Google Chrome extension for viewing bookmarks.
 - [ ] Do not show folder names for empty folders on search.
 - [ ] About page with link to source code?
 - [x] Disable text wrapping on bookmarks and folders.
-- [x] Search feature!
+- [ ] Search feature!
 
 ## Message Passing
 
