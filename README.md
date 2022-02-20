@@ -27,8 +27,13 @@ A Google Chrome extension for viewing bookmarks.
 
 ## Message Passing
 
-- Content script loads.
-- Content script chrome.runtime.sendMessage('get_bookmarks');
+- Content script loads
+- Content script calls chrome.runtime.sendMessage('sidemark_get_bookmarks')
+- Background script onMessage listener receives message
+- Background script calls getBookmarks() with response callback from content script
+- Background script calls chrome.bookmarks.getTree() with anonymous callback function
+- Background script anonymous callback function calls content script response callback function
+- Content script response callback function calls loadTree() to load bookmarks tree
 
 ## References
 
