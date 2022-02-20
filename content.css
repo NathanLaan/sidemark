@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+*{
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .sidemark {
   list-style: none;
   text-decoration: none;
@@ -8,12 +16,14 @@
   box-sizing: border-box;
 }
 
-.sidemark-sidebar {
-  background: orange;
+.sidebarWrapper {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.4);
   clear: both;
   display: float;
   height: 100%;
-  width: 300px;
+  width: 400px;
   position: fixed;
   top: 0px;
   right: 0px;
@@ -66,7 +76,7 @@
 }
 
 div input {
-  width: 75%;
+/*   width: 75%; */
   padding: 0px;
   margin: 0px 0px 0px 15px;
   box-sizing: border-box;

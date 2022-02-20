@@ -7,6 +7,10 @@
     "service_worker": "background.js"
   },
   "permissions": ["storage", "activeTab", "scripting", "bookmarks", "commands"],
+  "web_accessible_resources": [{
+    "matches": ["<all_urls>"],
+    "resources": ["bookmarks.html"]
+  }],
   "content_scripts": [{
       "run_at": "document_end",
       "matches": [
