@@ -22,6 +22,11 @@ A Google Chrome extension for viewing bookmarks.
 - [x] Disable text wrapping on bookmarks and folders.
 - [x] Search feature!
 
+## Message Passing
+
+- Content script loads.
+- Content script chrome.runtime.sendMessage('get_bookmarks');
+
 ## References
 
 - [Google Chrome extensions page for SideMark](https://chrome.google.com/webstore/detail/sidemark/mpmmbieakmohbhjidajegiehcbeagdcg)

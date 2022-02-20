@@ -1,4 +1,4 @@
-msg('content');
+msg('CONTENT run');
 
 let visible = false;
 
@@ -11,7 +11,7 @@ function msg(m) {
 }
 
 chrome.runtime.onMessage.addListener(function (message, sender, callback) {
-  if(message === 'chrome.action.onClicked') {
+  if(message === 'sidemark_onclicked') {
     if (visible) {
       document.body.removeChild(element);
     } else {
@@ -21,17 +21,14 @@ chrome.runtime.onMessage.addListener(function (message, sender, callback) {
   }
 });
 
-
-chrome.runtime.sendMessage({ message: 'getBookmarks', function(response) {
-  msg('getBookmarks');
-} });
-
+chrome.runtime.sendMessage({message: "sidemark_get_bookmarks"}, (response) => {
+  msg('CONTENT sendMessage.response: ' + JSON.stringify(response));
+  //
+  // load bookmarks
+  //
+});
 
 function loadTree(bookmarkList, searchQuery) {
   element.innerHTML = '';
   msg('loadTree');
 }
-
-
-
-

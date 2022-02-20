@@ -1,41 +1,43 @@
-clog('background');
+clog('BGROUND run');
 // let setting = '';
-
 
 function clog(message) {
   const d = new Date();
   console.log(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+' LOG: '+message);
 }
 
-// https://stackoverflow.com/questions/18694538/sending-message-from-popup-js-in-chrome-extension-to-background-js
-chrome.runtime.onMessage.addListener(function (request) {
-  if(request.message == 'getBookmarks') {
-    getBookmarks();
-  }
-  clog(request.message);
-});
-
 chrome.runtime.onInstalled.addListener(() => {
-  clog('onInstalled');
-
-  chrome.action.onClicked.addListener(function(tab) {
-    chrome.tabs.sendMessage(tab.id, 'chrome.action.onClicked');
-  });
-
+  clog('BGROUND onInstalled');
   //
   // TODO: Save default settings.
   //
-
 });
 
+chrome.action.onClicked.addListener(function(tab) {
+  chrome.tabs.sendMessage(tab.id, 'sidemark_onclicked');
+});
 
-function getBookmarks() {
-  chrome.bookmarks.getTree().then(function (bookmarkList) {
-    //loadTree(bookmarkList);
-    //
-    // TODO: Callback the content script
-    //
-    clog('chrome.bookmarks.getTree');
+/**
+ * 
+ * Need to return true in order to be able to send data to response function
+ * https://stackoverflow.com/questions/20077487/
+ * 
+ */
+chrome.runtime.onMessage.addListener((request, sender, response) => {
+  if(request.message == 'sidemark_get_bookmarks') {
+    getBookmarks(response);
+    return true;
+  } else {
+    clog(request.message);
+    return false;
+  }
+});
+
+function getBookmarks(callback) {
+  chrome.bookmarks.getTree().then((bookmarkList) => {
+    if(bookmarkList) {
+      callback(bookmarkList);
+    }
   }, function (error) {
     clog(error);
   });
@@ -58,5 +60,5 @@ chrome.bookmarks.onRemoved.addListener((id, info) => {
 });
 
 chrome.commands.onCommand.addListener((command) => {
-  clog(`Command: ${command}`);
+  clog(`BGROUND Command: ${command}`);
 });
