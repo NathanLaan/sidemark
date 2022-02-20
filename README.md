@@ -35,12 +35,15 @@ A Google Chrome extension for viewing bookmarks.
 - Background script anonymous callback function calls content script response callback function
 - Content script response callback function calls loadTree() to load bookmarks tree
 
-## References
+## Links
 
 - [Google Chrome extensions page for SideMark](https://chrome.google.com/webstore/detail/sidemark/mpmmbieakmohbhjidajegiehcbeagdcg)
+- [Color Palette](https://coolors.co/124e78-f0f0c9-f2bb05-d74e09-6e0e0a)
+
+## API References
+
 - [Google Chrome Extension Bookmarks API](https://developer.chrome.com/docs/extensions/reference/bookmarks/)
 - [Google Chrome Extension Runtime API](https://developer.chrome.com/docs/extensions/reference/runtime/)
 - [Google Chrome Extension Commands API](https://developer.chrome.com/docs/extensions/reference/commands/)
 - [Google Chrome Extension Message-Passing API](https://developer.chrome.com/docs/extensions/reference/runtime/#method-sendMessage)
-- [Color Palette](https://coolors.co/124e78-f0f0c9-f2bb05-d74e09-6e0e0a)
 - [Google Chrome chrome.action API](https://developer.chrome.com/docs/extensions/reference/action/#event-onClicked)
