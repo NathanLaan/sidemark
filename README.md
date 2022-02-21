@@ -7,12 +7,11 @@ A Google Chrome extension for viewing bookmarks.
 - [x] Display bookmarks in "sidebar" on the page.
 - [ ] Editable bookmarks.
 - [x] Keyboard shortcut.
-- [ ] Settings:
+- [ ] [User Options](https://developer.chrome.com/docs/extensions/mv3/options/):
   - [ ] Popup/sidebar size.
   - [ ] Open bookmark in current or new window.
   - [ ] Editable keyboard shortcut?
   - [ ] Toggle between sidebar and popup window.
-- [ ] Settings:
 - [ ] Language support.
 - [ ] Update bookmarks on events.
 - [ ] Better icon.
@@ -43,8 +42,9 @@ A Google Chrome extension for viewing bookmarks.
 
 ## API References
 
+- [Google Chrome Extension User Options](https://developer.chrome.com/docs/extensions/mv3/options/)
 - [Google Chrome Extension Bookmarks API](https://developer.chrome.com/docs/extensions/reference/bookmarks/)
 - [Google Chrome Extension Runtime API](https://developer.chrome.com/docs/extensions/reference/runtime/)
 - [Google Chrome Extension Commands API](https://developer.chrome.com/docs/extensions/reference/commands/)
 - [Google Chrome Extension Message-Passing API](https://developer.chrome.com/docs/extensions/reference/runtime/#method-sendMessage)
-- [Google Chrome chrome.action API](https://developer.chrome.com/docs/extensions/reference/action/#event-onClicked)
+- [Google Chrome Extension chrome.action API](https://developer.chrome.com/docs/extensions/reference/action/#event-onClicked)
