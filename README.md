@@ -24,6 +24,7 @@ A Google Chrome extension for viewing bookmarks.
 - [ ] About page with link to source code?
 - [x] Disable text wrapping on bookmarks and folders.
 - [ ] Search feature!
+- [ ] Ability to "minimize" folders.
 
 ## Message Passing
 
