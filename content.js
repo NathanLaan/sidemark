@@ -4,6 +4,7 @@ function msg(m) {
   chrome.runtime.sendMessage({ message: m });
 }
 
+let option_left = true;
 let visible = false;
 
 function createElement(type, className = undefined, id = undefined) {
@@ -15,6 +16,22 @@ function createElement(type, className = undefined, id = undefined) {
     element.id = id; 
   }
   return element;
+}
+
+function setElementLeft(element) {
+  element.style.position = "absolute";
+  //element.style.right = '';
+  element.style.removeProperty('right');
+  element.style.left = '0px';
+  element.style.top = '0px';
+}
+
+function setElementRight(element) {
+  element.style.position = "absolute";
+  //element.style.left = '';
+  element.style.removeProperty('left');
+  element.style.right = '0px';
+  element.style.top = '0px';
 }
 
 const sidebarElement = createElement('div', 'sidebarWrapper', 'sidebarElement');
@@ -34,6 +51,11 @@ chrome.runtime.onMessage.addListener(function (message, sender, callback) {
     if (visible) {
       document.body.removeChild(sidebarElement);
     } else {
+      if(option_left){
+        setElementLeft(sidebarElement);
+      } else {
+        setElementRight(sidebarElement);
+      }
       document.body.appendChild(sidebarElement);
     }
     visible = !visible;
