@@ -15,7 +15,7 @@ function createElement(type, className = undefined, id = undefined) {
 }
 
 function setElementLeft(element) {
-  element.style.position = "absolute";
+  element.style.position = "fixed";
   //element.style.right = '';
   element.style.removeProperty('right');
   element.style.left = '0px';
@@ -23,7 +23,7 @@ function setElementLeft(element) {
 }
 
 function setElementRight(element) {
-  element.style.position = "absolute";
+  element.style.position = "fixed";
   //element.style.left = '';
   element.style.removeProperty('left');
   element.style.right = '0px';
