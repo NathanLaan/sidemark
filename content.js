@@ -1,8 +1,6 @@
-msg('CONTENT run');
 
-function msg(m) {
-  chrome.runtime.sendMessage({ message: m });
-}
+
+sidemark.msg('CONTENT run');
 
 let option_left = true;
 let visible = false;
