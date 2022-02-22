@@ -1,4 +1,3 @@
-
 sidemark.msg('CONTENT run');
 
 let option_left = true;
@@ -47,15 +46,18 @@ chrome.runtime.onMessage.addListener(function (message, sender, callback) {
   if(message === 'sidemark_onclicked') {
     if (visible) {
       document.body.removeChild(sidebarElement);
+      visible = !visible;
     } else {
-      if(option_left){
-        setElementLeft(sidebarElement);
-      } else {
-        setElementRight(sidebarElement);
-      }
-      document.body.appendChild(sidebarElement);
+      sidemark.getSidebarLocation(function(sidebarLocation){
+        if(sidebarLocation == 'left'){
+          setElementLeft(sidebarElement);
+        } else {
+          setElementRight(sidebarElement);
+        }
+        document.body.appendChild(sidebarElement);
+        visible = !visible;
+      });
     }
-    visible = !visible;
   }
 });
 
