@@ -4,6 +4,7 @@ A Google Chrome extension for viewing bookmarks.
 
 ## Roadmap
 
+- Fix sidebar to window so it does not move if the user scrolls.
 - [x] Display bookmarks in "sidebar" on the page.
 - [ ] Editable bookmarks.
 - [x] Keyboard shortcut.
