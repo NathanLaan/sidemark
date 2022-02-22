@@ -17,7 +17,7 @@
           "https://*/*",
           "http://*/*"
       ],
-      "js": ["content.js"],
+      "js": ["sidemark.msg.js", "content.js"],
       "css": ["content.css"]
   }],
   "commands": {

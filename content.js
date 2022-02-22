@@ -1,5 +1,4 @@
 
-
 sidemark.msg('CONTENT run');
 
 let option_left = true;
@@ -61,17 +60,17 @@ chrome.runtime.onMessage.addListener(function (message, sender, callback) {
 });
 
 chrome.runtime.sendMessage({message: "sidemark_get_bookmarks"}, (response) => {
-  msg('CONTENT sendMessage.response: ' + response);
+  sidemark.msg('CONTENT sendMessage.response: ' + response);
   loadTree(response);
 });
 
 function loadTree(bookmarkList, searchQuery = undefined) {
   //bookmarkListElement.innerHTML = '';
-  msg('CONTENT loadTree');
+  sidemark.msg('CONTENT loadTree');
   //bookmarkListElement = document.getElementById('bookmarkList');
   //bookmarkListElement = sidebarElement.childNodes.item('bookmarkList;')[0];
   //msg('CONTENT loadTree.sidebarElement.childNodes: ' + JSON.stringify(sidebarElement.childNodes));
-  msg('CONTENT loadTree.bookmarkListElement: ' + bookmarkListElement);
+  sidemark.msg('CONTENT loadTree.bookmarkListElement: ' + bookmarkListElement);
   addNodeRecursive(bookmarkList[0], searchQuery);
 }
 
