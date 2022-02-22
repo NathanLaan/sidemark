@@ -26,6 +26,8 @@ A Google Chrome extension for viewing bookmarks.
 - [x] Disable text wrapping on bookmarks and folders.
 - [ ] Search feature!
 - [ ] Ability to "minimize" folders.
+- [ ] Window theming.
+- [ ] Window dark/light mode support.
 
 ## Message Passing
 
