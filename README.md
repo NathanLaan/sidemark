@@ -8,6 +8,7 @@ A Google Chrome extension for viewing bookmarks.
 - [ ] Editable bookmarks.
 - [x] Keyboard shortcut.
 - [ ] [User Options](https://developer.chrome.com/docs/extensions/mv3/options/):
+  - [x] Sidebar location (left/right).
   - [ ] Popup/sidebar size.
   - [ ] Open bookmark in current or new window.
   - [ ] Editable keyboard shortcut?
