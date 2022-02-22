@@ -2,8 +2,33 @@
 <html>
   <body>
     <div>
-      <p>Options</p>
+      <h1>SideMark Options</h1>
+      <div id="sidebarLocationLabel" class="optionLabel">Sidebar Location:</div> 
+      <select id="sidebarLocationSelect">
+      <option value="left">Left</option>
+      <option value="right">Right</option>
+      </select>
+      <br>
+      <br>
+      <button id="saveButton">Save</button>
+      <br>
+      <br>
+      <div id="statusDiv"></div>
+      <br>
+      <br>
     </div>
   </body>
+  <style>
+    .optionLabel {
+      float: left;
+      min-width: 15%;
+      padding-right: 2px;
+    }
+    select {
+      min-width: 15%;
+    }
+  </style>
+  <script src="sidemark.msg.js"></script>
+  <script src="sidemark.options.js"></script>
   <script src="options.js"></script>
 </html>
