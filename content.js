@@ -30,7 +30,7 @@ function setElementRight(element) {
   element.style.top = '0px';
 }
 
-const sidebarElement = createElement('div', 'sidebarWrapper', 'sidebarElement');
+const sidebarElement = createElement('div', 'sidemark sidebarWrapper', 'sidebarElement');
 const sidebarInnerElement = createElement('div', 'sidebar');
 sidebarElement.appendChild(sidebarInnerElement);
 const bookmarkListElement = document.createElement('ul');
