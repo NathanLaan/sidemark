@@ -16,10 +16,10 @@
   box-sizing: border-box;
 }
 
-.sidebarWrapper {
+.sidemark-sidebar-wrapper {
   margin: 0;
   padding: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.4) !important;
   clear: both;
   display: float;
   height: 100%;
@@ -30,8 +30,8 @@
   z-index: 900000000000000000;
 }
 
-.sidebar {
-  background: #424242;
+.sidemark-sidebar {
+  background: #424242 !important;
   top: 0;
   left: 0;
   width: 100%;
@@ -40,10 +40,10 @@
   overflow-y:scroll;
 }
 
-.sidebar ul li div {
-  background: #4d4d4d;
+.sidemark-sidebar ul li div {
   color: #fff;
-  background: #F0F0C9;
+  background: #4d4d4d;
+  background: #F0F0C9 !important;
   color: #000;
   display: block;
   padding: 5px 20px;
@@ -53,14 +53,14 @@
   white-space: nowrap;
 }
 
-.sidebar ul li .search {
+.sidemark-sidebar ul li .search {
   background: #777777;
   background: #124E78 !important;
   color: #fff;
   font-weight: bold;
 }
 
-.sidebar ul li a {
+.sidemark-sidebar ul li a {
   display: block;
   padding: 5px 40px;
   border-bottom: 1px solid #fff;
@@ -70,8 +70,8 @@
   white-space: nowrap;
 }
 
-.sidebar ul li a:hover {
-  background: #585858;
+.sidemark-sidebar ul li a:hover {
+  background: #585858 !important;
   /*transition: background-color 0.5s ease;*/
 }
 

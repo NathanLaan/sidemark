@@ -28,8 +28,8 @@ function setupSidebarElementStyle(options) {
   sidebarElement.style.height = options.sidebarHeight;
 }
 
-const sidebarElement = createElement('div', 'sidemark sidebarWrapper', 'sidebarElement');
-const sidebarInnerElement = createElement('div', 'sidebar');
+const sidebarElement = createElement('div', 'sidemark sidemark-sidebar-wrapper', 'sidebarElement');
+const sidebarInnerElement = createElement('div', 'sidemark-sidebar');
 sidebarElement.appendChild(sidebarInnerElement);
 const bookmarkListElement = document.createElement('ul');
 sidebarInnerElement.appendChild(bookmarkListElement);
