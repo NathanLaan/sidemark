@@ -2,19 +2,20 @@
 class SidemarkOptions {
   /**
    * 
-   * @param {String} sidebarLocation 
-   * @param {String} sidebarWidth 
-   * @param {String} sidebarHeight 
-   * @param {String} bookmarkTarget 
+   * @param {String}  sidebarLocation 
+   * @param {String}  sidebarWidth 
+   * @param {String}  sidebarHeight 
+   * @param {String}  bookmarkTarget 
+   * @param {boolean} showPageOverlay
    */
-  constructor(sidebarLocation, sidebarWidth, sidebarHeight, bookmarkTarget) {
+  constructor(sidebarLocation, sidebarWidth, sidebarHeight, bookmarkTarget, showPageOverlay) {
     this.sidebarLocation = sidebarLocation || 'left';
     this.sidebarWidth = sidebarWidth || '300px';
     this.sidebarHeight = sidebarHeight || '100%';
     this.bookmarkTarget = bookmarkTarget || '_blank';
+    this.showPageOverlay = showPageOverlay || true;
   }
 }
-
 
 function saveDefaultOptions(callback) {
   let options = new SidemarkOptions();
@@ -54,4 +55,3 @@ function getAllStorage(callback) {
     callback(items);
   });
 }
-

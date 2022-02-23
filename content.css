@@ -16,18 +16,30 @@
   box-sizing: border-box;
 }
 
-.sidemark-sidebar-wrapper {
+.sidemark-wrapper {
   margin: 0;
   padding: 0;
-  background-color: rgba(0, 0, 0, 0.4) !important;
+  background-color: rgba(255, 255, 255, 0.4) !important;
   clear: both;
-  display: float;
   height: 100%;
   /*width: 400px;*/
   position: fixed;
   top: 0px;
   right: 0px;
   z-index: 900000000000000000;
+}
+
+.sidemark-overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  z-index: 2147483640;
 }
 
 .sidemark-sidebar {

@@ -28,7 +28,8 @@ function setupSidebarElementStyle(options) {
   sidebarElement.style.height = options.sidebarHeight;
 }
 
-const sidebarElement = createElement('div', 'sidemark sidemark-sidebar-wrapper', 'sidebarElement');
+const pageOverlay = createElement('div', 'sidemark-overlay');
+const sidebarElement = createElement('div', 'sidemark sidemark-wrapper');
 const sidebarInnerElement = createElement('div', 'sidemark-sidebar');
 sidebarElement.appendChild(sidebarInnerElement);
 const bookmarkListElement = document.createElement('ul');
@@ -44,11 +45,17 @@ chrome.runtime.onMessage.addListener(function (message, sender, callback) {
   if(message === 'sidemark_onclicked') {
     if (visible) {
       document.body.removeChild(sidebarElement);
+      if(document.body.contains(pageOverlay)) {
+        document.body.removeChild(pageOverlay);
+      }
       visible = !visible;
     } else {
       getOptions(function(options) {
         setupSidebarElementStyle(options);
         document.body.appendChild(sidebarElement);
+        if(options.showPageOverlay) {
+          document.body.appendChild(pageOverlay);
+        }
         visible = !visible;
       });
     }
@@ -60,8 +67,6 @@ chrome.runtime.sendMessage({message: "sidemark_get_bookmarks"}, (response) => {
   getOptions(function(options) {
     loadTree(response, options);
     setupSidebarElementStyle(options);
-    document.body.appendChild(sidebarElement);
-    visible = !visible;
   });
 });
 
