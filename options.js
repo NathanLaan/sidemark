@@ -1,21 +1,9 @@
 
-function saveOptions() {
-  const val = document.getElementById('sidebarLocationSelect').value;
-  sidemark.setSidebarLocation(val, function() {
-    sidemark.msg('OPTIONS saveOptionsCB sidebarLocation: ' + val);
-    // Notify the user on successful save
-    let status = document.getElementById('statusDiv');
-    status.textContent = 'Options saved.';
-    setTimeout(function() {
-      status.textContent = '';
-    }, 2000);
-  });
-}
-
-function loadOptions() {
-  sidemark.getSidebarLocation(function(sidebarLocation) {
-    document.getElementById('sidebarLocationSelect').value = sidebarLocation;
-    sidemark.msg('OPTIONS loadOptionsCB sidebarLocation: ' + sidebarLocation);
+function setupOptionsUI() {
+  getOptions(function(options) {
+    document.getElementById('sidebarLocation').value = options.sidebarLocation;
+    document.getElementById('sidebarWidth').value = options.sidebarWidth;
+    document.getElementById('sidebarHeight').value = options.sidebarHeight;
   });
 }
 
@@ -24,5 +12,24 @@ function loadOptions() {
  * load & parse, before other resources have been loaded.
  * https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
  */
-document.addEventListener('DOMContentLoaded', loadOptions);
-document.getElementById('saveButton').addEventListener('click', saveOptions);
+document.addEventListener('DOMContentLoaded', setupOptionsUI);
+
+document.getElementById('saveButton').addEventListener('click', function() {
+  let options = new SidemarkOptions();
+  options.sidebarLocation = document.getElementById('sidebarLocation').value;
+  options.sidebarWidth = document.getElementById('sidebarWidth').value;
+  options.sidebarHeight = document.getElementById('sidebarHeight').value;
+  saveOptions(options, function() {
+    const status = document.getElementById('statusDiv');
+    status.textContent = 'Options saved.';
+    setTimeout(function() {
+      status.textContent = '';
+    }, 2500);
+  });
+});
+
+document.getElementById('defaultButton').addEventListener('click', function() {
+  saveDefaultOptions(function() {
+    setupOptionsUI();
+  });
+});

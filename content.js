@@ -14,20 +14,18 @@ function createElement(type, className = undefined, id = undefined) {
   return element;
 }
 
-function setElementLeft(element) {
-  element.style.position = "fixed";
-  //element.style.right = '';
-  element.style.removeProperty('right');
-  element.style.left = '0px';
-  element.style.top = '0px';
-}
-
-function setElementRight(element) {
-  element.style.position = "fixed";
-  //element.style.left = '';
-  element.style.removeProperty('left');
-  element.style.right = '0px';
-  element.style.top = '0px';
+function setupSidebarElementStyle(options) {
+  if(options.sidebarLocation == 'left'){
+    sidebarElement.style.removeProperty('right');
+    sidebarElement.style.left = '0px';
+  } else {
+    sidebarElement.style.removeProperty('left');
+    sidebarElement.style.right = '0px';
+  }
+  sidebarElement.style.position = "fixed";
+  sidebarElement.style.top = '0px';
+  sidebarElement.style.width = options.sidebarWidth;
+  sidebarElement.style.height = options.sidebarHeight;
 }
 
 const sidebarElement = createElement('div', 'sidemark sidebarWrapper', 'sidebarElement');
@@ -48,12 +46,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, callback) {
       document.body.removeChild(sidebarElement);
       visible = !visible;
     } else {
-      sidemark.getSidebarLocation(function(sidebarLocation){
-        if(sidebarLocation == 'left'){
-          setElementLeft(sidebarElement);
-        } else {
-          setElementRight(sidebarElement);
-        }
+      getOptions(function(options) {
+        setupSidebarElementStyle(options);
         document.body.appendChild(sidebarElement);
         visible = !visible;
       });

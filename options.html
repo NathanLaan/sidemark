@@ -1,34 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <div>
-      <h1>SideMark Options</h1>
-      <div id="sidebarLocationLabel" class="optionLabel">Sidebar Location:</div> 
-      <select id="sidebarLocationSelect">
+<body>
+  <div>
+    <h1>SideMark Options</h1>
+    <div id="sidebarLocationLabel" class="optionLabel">Sidebar Location:</div>
+    <select id="sidebarLocation">
       <option value="left">Left</option>
       <option value="right">Right</option>
-      </select>
-      <br>
-      <br>
-      <button id="saveButton">Save</button>
-      <br>
-      <br>
-      <div id="statusDiv"></div>
-      <br>
-      <br>
-    </div>
-  </body>
-  <style>
-    .optionLabel {
-      float: left;
-      min-width: 15%;
-      padding-right: 2px;
-    }
-    select {
-      min-width: 15%;
-    }
-  </style>
-  <script src="sidemark.msg.js"></script>
-  <script src="sidemark.options.js"></script>
-  <script src="options.js"></script>
+    </select>
+    <br>
+    <div id="sidebarWidthLabel" class="optionLabel">Sidebar Width:</div>
+    <select id="sidebarWidth">
+      <option value="200px">Tiny</option>
+      <option value="300px">Small</option>
+      <option value="400px">Medium</option>
+      <option value="500px">Large</option>
+      <option value="600px">Extra Large</option>
+      <option value="100%">Full Size</option>
+    </select>
+    <br>
+    <div id="sidebarHeightLabel" class="optionLabel">Sidebar Height:</div>
+    <select id="sidebarHeight">
+      <option value="25%">25%</option>
+      <option value="50%">50%</option>
+      <option value="100%">100%</option>
+    </select>
+    <br>
+    <div id="fontSizeLabel" class="optionLabel">Font Size:</div>
+    <select id="fontSize" disabled>
+      <option value="50%">50%</option>
+      <option value="75%">75%</option>
+      <option value="90%">90%</option>
+      <option value="100%">100%</option>
+      <option value="125%">125%</option>
+      <option value="150%">150%</option>
+    </select>
+    <br>
+    <br>
+    <button id="saveButton">Save</button>&nbsp;<button id="defaultButton">Reset to Default</button>
+    <br>
+    <br>
+    <div id="statusDiv"></div>
+    <br>
+    <br>
+  </div>
+</body>
+<style>
+  .optionLabel {
+    float: left;
+    min-width: 15%;
+    padding-right: 2px;
+  }
+  select {
+    min-width: 15%;
+  }
+</style>
+<script src="sidemark.msg.js"></script>
+<script src="sidemark.options.js"></script>
+<script src="options.js"></script>
 </html>

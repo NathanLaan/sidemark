@@ -4,6 +4,7 @@ A Google Chrome extension for viewing bookmarks.
 
 ## Roadmap
 
+- [x] Function to reset settings in options page.
 - [ ] Fade out the active page when sidebar is shown (overlay transparent div).
 - [x] Sidemark CSS overriding page CSS and vice-versa.
 - [x] Fix sidebar to window so it does not move if the user scrolls.
@@ -12,10 +13,12 @@ A Google Chrome extension for viewing bookmarks.
 - [x] Keyboard shortcut.
 - [ ] [User Options](https://developer.chrome.com/docs/extensions/mv3/options/):
   - [x] Sidebar location (left/right).
-  - [ ] Popup/sidebar size.
+  - [x] Sidebar width.
+  - [x] Sidebar height.
+  - [ ] Sidebar font size.
   - [ ] Open bookmark in current or new window.
   - [ ] Editable keyboard shortcut?
-  - [ ] Toggle between sidebar and popup window.
+  - [ ] Toggle between sidebar and popup window?
 - [ ] Language support.
 - [ ] Update bookmarks on events.
 - [ ] Better icon.
