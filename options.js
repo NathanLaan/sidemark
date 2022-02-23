@@ -4,6 +4,7 @@ function setupOptionsUI() {
     document.getElementById('sidebarLocation').value = options.sidebarLocation;
     document.getElementById('sidebarWidth').value = options.sidebarWidth;
     document.getElementById('sidebarHeight').value = options.sidebarHeight;
+    document.getElementById('bookmarkTarget').value = options.bookmarkTarget;
   });
 }
 
@@ -19,6 +20,7 @@ document.getElementById('saveButton').addEventListener('click', function() {
   options.sidebarLocation = document.getElementById('sidebarLocation').value;
   options.sidebarWidth = document.getElementById('sidebarWidth').value;
   options.sidebarHeight = document.getElementById('sidebarHeight').value;
+  options.bookmarkTarget = document.getElementById('bookmarkTarget').value;
   saveOptions(options, function() {
     const status = document.getElementById('statusDiv');
     status.textContent = 'Options saved.';

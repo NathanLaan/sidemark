@@ -1,9 +1,17 @@
 
 class SidemarkOptions {
-  constructor(sidebarLocation, sidebarWidth, sidebarHeight) {
+  /**
+   * 
+   * @param {String} sidebarLocation 
+   * @param {String} sidebarWidth 
+   * @param {String} sidebarHeight 
+   * @param {String} bookmarkTarget 
+   */
+  constructor(sidebarLocation, sidebarWidth, sidebarHeight, bookmarkTarget) {
     this.sidebarLocation = sidebarLocation || 'left';
     this.sidebarWidth = sidebarWidth || '300px';
     this.sidebarHeight = sidebarHeight || '100%';
+    this.bookmarkTarget = bookmarkTarget || '_blank';
   }
 }
 

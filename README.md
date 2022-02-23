@@ -16,7 +16,7 @@ A Google Chrome extension for viewing bookmarks.
   - [x] Sidebar width.
   - [x] Sidebar height.
   - [ ] Sidebar font size.
-  - [ ] Open bookmark in current or new window.
+  - [x] Open bookmark in current or new window.
   - [ ] Editable keyboard shortcut?
   - [ ] Toggle between sidebar and popup window?
 - [ ] Language support.

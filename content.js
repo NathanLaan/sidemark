@@ -57,17 +57,18 @@ chrome.runtime.onMessage.addListener(function (message, sender, callback) {
 
 chrome.runtime.sendMessage({message: "sidemark_get_bookmarks"}, (response) => {
   sidemark.msg('CONTENT sendMessage.response: ' + response);
-  loadTree(response);
+  getOptions(function(options) {
+    loadTree(response, options);
+    setupSidebarElementStyle(options);
+    document.body.appendChild(sidebarElement);
+    visible = !visible;
+  });
 });
 
-function loadTree(bookmarkList, searchQuery = undefined) {
-  //bookmarkListElement.innerHTML = '';
-  sidemark.msg('CONTENT loadTree');
-  //bookmarkListElement = document.getElementById('bookmarkList');
-  //bookmarkListElement = sidebarElement.childNodes.item('bookmarkList;')[0];
-  //msg('CONTENT loadTree.sidebarElement.childNodes: ' + JSON.stringify(sidebarElement.childNodes));
+function loadTree(bookmarkList, options, searchQuery = undefined) {
   sidemark.msg('CONTENT loadTree.bookmarkListElement: ' + bookmarkListElement);
-  addNodeRecursive(bookmarkList[0], searchQuery);
+  sidemark.msg('CONTENT loadTree.options: ' + JSON.stringify(options));
+  addNodeRecursive(bookmarkList[0], options, searchQuery);
 }
 
 
@@ -76,21 +77,21 @@ function loadTree(bookmarkList, searchQuery = undefined) {
  * @param {chrome.bookmarks.BookmarkTreeNode} bookmarkTreeNode  The node to load and/or filter with filterText.
  * @param {string} filterText  The string to filter nodes or null if no filter.
  */
-function addNodeRecursive(bookmarkTreeNode, filterText = undefined) {
+function addNodeRecursive(bookmarkTreeNode, options, filterText = undefined) {
   if(filterText && !bookmarkTreeNode.children) {
     if( bookmarkTreeNode.title && bookmarkTreeNode.title.toLowerCase().includes(filterText)) {
-      bookmarkListElement.appendChild(createBookmarkElement(bookmarkTreeNode));
+      bookmarkListElement.appendChild(createBookmarkElement(bookmarkTreeNode, options));
     }
   } else {
     if (bookmarkTreeNode.url) {
-      bookmarkListElement.appendChild(createBookmarkElement(bookmarkTreeNode));
+      bookmarkListElement.appendChild(createBookmarkElement(bookmarkTreeNode, options));
     } else if(bookmarkTreeNode.title) {
-      bookmarkListElement.appendChild(createFolderElement(bookmarkTreeNode.title));
+      bookmarkListElement.appendChild(createFolderElement(bookmarkTreeNode.title, options));
     }
     // TODO: Do not show node if no filtered children
     if (bookmarkTreeNode.children) {
       for (child of bookmarkTreeNode.children) {
-        addNodeRecursive(child, filterText);
+        addNodeRecursive(child, options, filterText);
       }
     }
   }
@@ -102,16 +103,16 @@ function addNodeRecursive(bookmarkTreeNode, filterText = undefined) {
  * 
  */
 
-function createLinkElement(url, txt) {
+function createLinkElement(url, txt, options) {
   const link = document.createElement('a');
   link.href = url;
   link.title = txt;
-  link.target = '_blank';
+  link.target = options.bookmarkTarget;
   link.appendChild(document.createTextNode(txt));
   return link;
 }
 
-function createFolderElement(txt) {
+function createFolderElement(txt, options) {
   const listElement = document.createElement('li');
   const divElement = document.createElement('div');
   const iElement = document.createElement('i');
@@ -122,8 +123,8 @@ function createFolderElement(txt) {
   return listElement;
 }
 
-function createBookmarkElement(bookmark) {
+function createBookmarkElement(bookmark, options) {
   const listElement = document.createElement('li');
-  listElement.appendChild(createLinkElement(bookmark.url, bookmark.title));
+  listElement.appendChild(createLinkElement(bookmark.url, bookmark.title, options));
   return listElement;
 }
