@@ -9,7 +9,7 @@ A Google Chrome extension for viewing bookmarks.
 - [ ] Sidemark CSS overriding page CSS and vice-versa.
   - [x] https://amazon.ca
   - [x] https://blog.mollywhite.net/blockchains-are-not-what-they-say/ (Any site with ".sidebar" style)
-.- [x] Fix sidebar to window so it does not move if the user scrolls.
+- [x] Fix sidebar to window so it does not move if the user scrolls.
 - [x] Display bookmarks in "sidebar" on the page.
 - [ ] Editable bookmarks.
 - [x] Keyboard shortcut.
