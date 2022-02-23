@@ -12,7 +12,7 @@ function clog(m) {
 }
 
 chrome.runtime.onInstalled.addListener(function() {
-  saveDefaultOptions(void);
+  saveDefaultOptions(function() {});
 });
 
 chrome.action.onClicked.addListener(function (tab) {
