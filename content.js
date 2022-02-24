@@ -1,6 +1,5 @@
 sidemark.msg('CONTENT run');
 
-let option_left = true;
 let visible = false;
 
 function createElement(type, className = undefined, id = undefined) {
