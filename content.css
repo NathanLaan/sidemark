@@ -26,7 +26,7 @@
   position: fixed;
   top: 0px;
   right: 0px;
-  z-index: 900000000000000000;
+  z-index: 2147483647;
 }
 
 .sidemark-overlay {
