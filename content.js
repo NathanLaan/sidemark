@@ -1,4 +1,4 @@
-sidemark.msg('CONTENT run');
+msg('CONTENT run');
 
 let visible = false;
 
@@ -62,7 +62,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, callback) {
 });
 
 chrome.runtime.sendMessage({message: "sidemark_get_bookmarks"}, (response) => {
-  sidemark.msg('CONTENT sendMessage.response: ' + response);
   getOptions(function(options) {
     loadTree(response, options);
     setupSidebarElementStyle(options);
@@ -70,8 +69,6 @@ chrome.runtime.sendMessage({message: "sidemark_get_bookmarks"}, (response) => {
 });
 
 function loadTree(bookmarkList, options, searchQuery = undefined) {
-  sidemark.msg('CONTENT loadTree.bookmarkListElement: ' + bookmarkListElement);
-  sidemark.msg('CONTENT loadTree.options: ' + JSON.stringify(options));
   addNodeRecursive(bookmarkList[0], options, searchQuery);
 }
 

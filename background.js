@@ -1,5 +1,3 @@
-clog('BGROUND run');
-
 try {
   importScripts(['sidemark.options.js']);
 } catch (error) {
@@ -8,7 +6,7 @@ try {
 
 function clog(m) {
   const d = new Date();
-  console.log(d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + ' LOG: ' + m);
+  console.log(`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()} LOG: ${m}`);
 }
 
 chrome.runtime.onInstalled.addListener(function() {
