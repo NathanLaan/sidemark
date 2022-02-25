@@ -59,3 +59,7 @@ A Google Chrome extension for viewing bookmarks.
 - [Google Chrome Extension Commands API](https://developer.chrome.com/docs/extensions/reference/commands/)
 - [Google Chrome Extension Message-Passing API](https://developer.chrome.com/docs/extensions/reference/runtime/#method-sendMessage)
 - [Google Chrome Extension chrome.action API](https://developer.chrome.com/docs/extensions/reference/action/#event-onClicked)
+
+## Dev References
+
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
