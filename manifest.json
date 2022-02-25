@@ -1,7 +1,7 @@
 {
   "name": "SideMark",
   "description": "Sidebar Bookmark Viewer (Ctrl+Shift+X or Command+Shift+X)",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"

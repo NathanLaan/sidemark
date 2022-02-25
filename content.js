@@ -2,6 +2,17 @@ msg('CONTENT run');
 
 let visible = false;
 
+const pageOverlay = createElement('div', 'sidemark-overlay');
+const sidebarElement = createElement('div', 'sidemark sidemark-wrapper');
+const sidebarInnerElement = createElement('div', 'sidemark-sidebar');
+sidebarElement.appendChild(sidebarInnerElement);
+const bookmarkListElement = document.createElement('ul');
+sidebarInnerElement.appendChild(bookmarkListElement);
+
+pageOverlay.addEventListener('click', function (event) {
+  toggleSidebarVisible();
+});
+
 function createElement(type, className = undefined, id = undefined) {
   const element = document.createElement(type);
   if(className) {
@@ -27,37 +38,34 @@ function setupSidebarElementStyle(options) {
   sidebarElement.style.height = options.sidebarHeight;
 }
 
-const pageOverlay = createElement('div', 'sidemark-overlay');
-const sidebarElement = createElement('div', 'sidemark sidemark-wrapper');
-const sidebarInnerElement = createElement('div', 'sidemark-sidebar');
-sidebarElement.appendChild(sidebarInnerElement);
-const bookmarkListElement = document.createElement('ul');
-sidebarInnerElement.appendChild(bookmarkListElement);
-
 // async function loadHTML() {
 //   let url = chrome.runtime.getURL('bookmarks.html');
 //   sidebarElement.innerHTML = await (await fetch(url)).text();
 // }
 // loadHTML();
 
-chrome.runtime.onMessage.addListener(function (message, sender, callback) {
-  if(message === 'sidemark_onclicked') {
-    if (visible) {
-      document.body.removeChild(sidebarElement);
-      if(document.body.contains(pageOverlay)) {
-        document.body.removeChild(pageOverlay);
+function toggleSidebarVisible() {
+  if (visible) {
+    document.body.removeChild(sidebarElement);
+    if(document.body.contains(pageOverlay)) {
+      document.body.removeChild(pageOverlay);
+    }
+    visible = !visible;
+  } else {
+    getOptions(function(options) {
+      setupSidebarElementStyle(options);
+      document.body.appendChild(sidebarElement);
+      if(options.showPageOverlay) {
+        document.body.appendChild(pageOverlay);
       }
       visible = !visible;
-    } else {
-      getOptions(function(options) {
-        setupSidebarElementStyle(options);
-        document.body.appendChild(sidebarElement);
-        if(options.showPageOverlay) {
-          document.body.appendChild(pageOverlay);
-        }
-        visible = !visible;
-      });
-    }
+    });
+  }
+}
+
+chrome.runtime.onMessage.addListener(function (message, sender, callback) {
+  if(message === 'sidemark_onclicked') {
+    toggleSidebarVisible();
   }
 });
 

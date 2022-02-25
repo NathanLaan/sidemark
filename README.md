@@ -6,7 +6,7 @@ A Google Chrome extension for viewing bookmarks.
 
 - [x] Function to reset settings in options page.
 - [x] Fade out the active page when sidebar is shown (overlay transparent div).
-  - [ ] Click on overlay to hide the sidebar and overlay.
+  - [x] Click on overlay to hide the sidebar and overlay.
 - [ ] Sidemark CSS overriding page CSS and vice-versa.
   - [x] https://amazon.ca
   - [x] https://blog.mollywhite.net/blockchains-are-not-what-they-say/ (Any site with ".sidebar" style)
