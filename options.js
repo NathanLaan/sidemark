@@ -16,6 +16,12 @@ function setupOptionsUI() {
  */
 document.addEventListener('DOMContentLoaded', setupOptionsUI);
 
+document.getElementById('defaultButton').addEventListener('click', function() {
+  saveDefaultOptions(function() {
+    setupOptionsUI();
+  });
+});
+
 document.getElementById('saveButton').addEventListener('click', function() {
   let options = new SidemarkOptions();
   options.sidebarLocation = document.getElementById('sidebarLocation').value;
@@ -29,11 +35,5 @@ document.getElementById('saveButton').addEventListener('click', function() {
     setTimeout(function() {
       status.textContent = '';
     }, 2500);
-  });
-});
-
-document.getElementById('defaultButton').addEventListener('click', function() {
-  saveDefaultOptions(function() {
-    setupOptionsUI();
   });
 });
