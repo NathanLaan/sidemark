@@ -135,5 +135,6 @@ function createFolderElement(txt, options) {
 function createBookmarkElement(bookmark, options) {
   const listElement = document.createElement('li');
   listElement.appendChild(createLinkElement(bookmark.url, bookmark.title, options));
+  //listElement.appendChild(createElement('div', 'edit'));
   return listElement;
 }

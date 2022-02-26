@@ -77,8 +77,20 @@
   padding: 5px 40px;
   border-bottom: 1px solid #fff;
   position: relative;
-  width: 100%;
+  width: 90%;
   color: #fff;
+  white-space: nowrap;
+}
+
+.sidemark-sidebar ul li .edit {
+  display: inline;
+  float: right;
+  border-bottom: 1px solid #fff;
+  position: relative;
+  width: 10%;
+  color: #fff;
+  background: red !important;
+  cursor: crosshair;
   white-space: nowrap;
 }
 
