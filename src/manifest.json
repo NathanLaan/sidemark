@@ -1,7 +1,7 @@
 {
   "name": "SideMark",
-  "description": "Sidebar Bookmark Viewer (Ctrl+Shift+X or Command+Shift+X)",
-  "version": "1.2.5",
+  "description": "Sidebar Bookmark Viewer (Ctrl+Shift+Z or Command+Shift+Z)",
+  "version": "1.2.6",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
@@ -19,10 +19,10 @@
   "commands": {
     "_execute_action": {
 			"suggested_key": {
-        "windows": "Ctrl+Shift+X",
-        "mac": "Command+Shift+X",
-        "chromeos": "Ctrl+Shift+X",
-        "linux": "Ctrl+Shift+X"
+        "windows": "Ctrl+Shift+Z",
+        "mac": "Command+Shift+Z",
+        "chromeos": "Ctrl+Shift+Z",
+        "linux": "Ctrl+Shift+Z"
 			},
 			"description": "SideMark",
 			"global": false		
