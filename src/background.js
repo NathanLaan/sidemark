@@ -14,24 +14,38 @@ chrome.runtime.onInstalled.addListener(function() {
 });
 
 chrome.action.onClicked.addListener(function (tab) {
-  chrome.tabs.sendMessage(tab.id, 'sidemark_onclicked');
+  try {
+    chrome.tabs.sendMessage(tab.id, 'sidemark_onclicked');
+  } catch(err) {
+    clog(err);
+  }
+  // NOT NEEDED return true;
 });
 
-/**
- * Need to return true in order to be able to send data to response function
- * https://stackoverflow.com/questions/20077487/
- */
+
 chrome.runtime.onMessage.addListener((request, sender, callback) => {
   switch (request.message) {
     case 'sidemark_get_bookmarks':
       getBookmarks(callback);
-      return true;
+      break;
     default:
       clog(request.message);
-      return false;
   }
+  /*
+   * Return true to keep response function in scope for async calls
+   * https://stackoverflow.com/questions/20077487/
+   */
+  return true;
 });
 
+/**
+ * 
+ * TODO: DESIGN CHANGE. NEED TO SAVE BOOKMARKS HERE. RELOAD 
+ * BOOKMARKS ON BOOKMARK CHANGE EVENT. CHANGE CONTENT SCRIPT
+ * TO CALL FUNCTION TO GET BOOKMARKS WHEN SHOWING BOOKMARKS.
+ * 
+ * @param {Function} callback 
+ */
 function getBookmarks(callback) {
   chrome.bookmarks.getTree().then((bookmarkList) => {
     if (bookmarkList) {
@@ -40,6 +54,7 @@ function getBookmarks(callback) {
   }, function (error) {
     clog(error);
   });
+  // NOT NEEDED??? return true;
 }
 
 chrome.runtime.onStartup.addListener(() => {

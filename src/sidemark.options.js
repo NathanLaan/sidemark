@@ -31,6 +31,7 @@ function saveDefaultOptions(callback) {
  */
 function saveOptions(options, callback) {
   chrome.storage.sync.set({'sidemark_options': options}, callback());
+  return true;
 }
 
 /**
@@ -40,18 +41,7 @@ function saveOptions(options, callback) {
 function getOptions(callback) {
   let options = new SidemarkOptions();
   chrome.storage.sync.get({'sidemark_options': options}, function (items) {
-    const optionValues = items['sidemark_options'];
-    callback(optionValues);
+    callback(items['sidemark_options']);
   });
-}
-
-/**
- * 
- * @param {Function} callback 
- * @returns 
- */
-function getAllStorage(callback) {
-  chrome.storage.sync.get(null, function (items) {
-    callback(items);
-  });
+  // NOT NEEDED??? return true;
 }

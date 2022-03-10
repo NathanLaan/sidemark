@@ -1,4 +1,4 @@
-msg('CONTENT run');
+//msg('CONTENT run');
 
 let visible = false;
 
@@ -13,7 +13,7 @@ pageOverlay.addEventListener('click', function (event) {
   toggleSidebarVisible();
 });
 
-function createElement(type, className = undefined, id = undefined) {
+function createElement(type, className=undefined, id=undefined) {
   const element = document.createElement(type);
   if(className) {
     element.className = className; 
@@ -63,17 +63,25 @@ function toggleSidebarVisible() {
   }
 }
 
-chrome.runtime.onMessage.addListener(function (message, sender, callback) {
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if(message === 'sidemark_onclicked') {
     toggleSidebarVisible();
   }
+  /*
+   * Call to avoid error: "message port closed before a response was received"
+   * https://stackoverflow.com/questions/63322542/
+   */
+  sendResponse();
+  return true;
 });
 
+// Load bookmarks on page load.
 chrome.runtime.sendMessage({message: "sidemark_get_bookmarks"}, (response) => {
   getOptions(function(options) {
     loadTree(response, options);
     setupSidebarElementStyle(options);
   });
+  return true;
 });
 
 function loadTree(bookmarkList, options, searchQuery = undefined) {
