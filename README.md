@@ -4,6 +4,7 @@ A Google Chrome extension for viewing bookmarks.
 
 ## Roadmap
 
+- [ ] Set font! Ugly!
 - [x] Function to reset settings in options page.
 - [x] Fade out the active page when sidebar is shown (overlay transparent div).
   - [x] Click on overlay to hide the sidebar and overlay.
