@@ -106,3 +106,27 @@ div input {
   box-sizing: border-box;
   font-size: 1em;
 }
+
+/*
+ * NEW TESTING STYLES.
+ */
+.sidebar-ui-left.sidebar-ui-open {
+  left: 0px;
+}
+.sidebar-ui-vertical {
+  width: 320px;
+  height: 100%;
+  top: 0px;
+}
+.sidebar-ui, .sidebar-ui-push {
+  transition: all 0.3s ease 0s;
+}
+.sidebar-ui-left {
+  left: -320px;
+}
+.sidebar-ui {
+  position: fixed;
+  z-index: 2147483647;
+  width: 320px;
+  background: rgb(0, 0, 0);
+}
