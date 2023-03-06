@@ -2,6 +2,11 @@
 
 A Google Chrome extension for viewing bookmarks.
 
+[![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/mpmmbieakmohbhjidajegiehcbeagdcg.svg?style=flat-square)](https://chrome.google.com/webstore/detail/sidemark/mpmmbieakmohbhjidajegiehcbeagdcg)
+[![Chrome Web Store Downloads](https://img.shields.io/chrome-web-store/d/mpmmbieakmohbhjidajegiehcbeagdcg.svg?style=flat-square)](https://chrome.google.com/webstore/detail/sidemark/mpmmbieakmohbhjidajegiehcbeagdcg)
+[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/mpmmbieakmohbhjidajegiehcbeagdcg.svg?style=flat-square)](https://chrome.google.com/webstore/detail/sidemark/mpmmbieakmohbhjidajegiehcbeagdcg)
+[![Chrome Web Store Rating Count](https://img.shields.io/chrome-web-store/rating-count/mpmmbieakmohbhjidajegiehcbeagdcg.svg?style=flat-square)](https://chrome.google.com/webstore/detail/sidemark/mpmmbieakmohbhjidajegiehcbeagdcg/reviews)
+
 ## Roadmap
 
 - [ ] Set font! Ugly!
